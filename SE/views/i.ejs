@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Proma</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/favicon-32x32.pngs" rel="icon">
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Mar 09 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/home" class="logo d-flex align-items-center">
+        <img src="/favicon-32x32.png" alt="">
+        <span class="d-none d-lg-block">Proma</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+    
+    
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query"  title="Enter search keyword" id="myInput">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+         
+        <form  action="/tag" id="tag" method="get" >
+          <input type="text" name="D" value="<%=val.t1%>" id="t1" style="display: none;">
+          <input type="text" name="T" value="<%=val.t2%>" id="t2" style="display: none;">
+          
+        </form>
+        <li class="nav-item dropdown">
+             
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="d-none d-md-block dropdown-toggle ps-2">dept</span>
+            
+            
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow "   >
+              
+              
+                
+                
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#"  onclick=" document.getElementById('t1').value='IT',document.getElementById('tag').submit();">
+                      <span>IT</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t1').value='ECE',
+                    document.getElementById('tag').submit();" >
+                      <span>ECE</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t1').value='ITB',
+                    document.getElementById('tag').submit();">
+                      <span>ITB</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t1').value='All',
+                    document.getElementById('tag').submit();" >
+                      <span>All</span>
+                    </a>
+                  </li>
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li>
+
+        <!-- End Notification Nav -->
+        
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Topic</span>
+            
+            
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow "   >
+              
+              
+                
+                
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t2').value='ML',
+                    document.getElementById('tag').submit();">
+                      <span>ML</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t2').value='AI',
+                    document.getElementById('tag').submit();">
+                      <span>AI</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t2').value='WebD',
+                    document.getElementById('tag').submit();">
+                      <span>WebD</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t2').value='OOM',
+                    document.getElementById('tag').submit();">
+                      <span>OOM</span>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li >
+                    <a class="dropdown-item d-flex align-items-center"href="#" onclick=" document.getElementById('t2').value='DBMS',
+                    document.getElementById('tag').submit();">
+                      <span>DBMS</span></a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li >
+                <a class="dropdown-item d-flex align-items-center" href="#" onclick=" document.getElementById('t2').value='All',
+                document.getElementById('tag').submit();">
+                  <span>All</span>
+                </a>
+              </li>
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li>
+      
+        <!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <% if(  u[0].pic !== null  ) {%>
+              <img src='<%= u[0].pic %>' id="pro" alt="Profile" class="rounded-circle">
+              <% }%>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><%= u[0].username %></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6><%= u[0].username %></h6>
+              <span><%= u[0].id %></span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/profile">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/FAQ">
+                <i class="bi bi-gear"></i>
+                <span>F.A.Q</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/Contact">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <form id="logout"method="get" action="/logout">
+              <a class="dropdown-item d-flex align-items-center" href="#" onclick="document.getElementById('logout').submit()">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+              </form>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/home">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item ">
+        <a href="#Projects" class="nav-link collapsed active" data-bs-toggle="tab">
+          <i class="bi bi-person"></i>
+          <span>All Projects</span>
+        </a>
+      </li>
+
+      <!-- End Components Nav -->
+      
+      <li class="nav-item">
+        <a href="#MyProjects" class="nav-link collapsed" data-bs-toggle="tab">
+          <i class="bi bi-person"></i>
+          <span>Your Projects</span>
+        </a>
+      </li>
+      
+      <!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a href="#AddProjects" class="nav-link collapsed" data-bs-toggle="tab">
+          <i class="bi bi-person"></i>
+          <span>Add Projects</span>
+        </a>
+      </li>
+    </ul>
+
+      <!-- End Tables Nav -->
+
+      <!-- End Charts Nav -->
+
+      <!-- End Icons Nav -->
+
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/profile">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/FAQ">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/Contact">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+     
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/Feedback">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Feedback</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+    <div class="tab-content pt-2" id="myTabContent">
+      <div class="tab-pane fade show active" id="Projects" role="tabpanel" aria-labelledby="home-tab">
+    <table class="table table-hover myTable" id="myTable">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Discription</th>
+            <th>Download</th>
+          </tr>
+        </thead>
+      <tbody>
+      <% for(var i=0;i<oproject.length;i++){%>
+          <tr >
+             <td> <form id="show<%=oproject[i].pid %>" action="/show" method="post">
+              <input type="radio" name="proid" value="<%= oproject[i].id +"/" +oproject[i].pid %>" style="display: none;" checked>
+            </form>
+               <a href="#" onclick="document.getElementById('show<%=oproject[i].pid %>').submit()"> <em> <%= oproject[i].projectname %> </em></a> 
+            </td>
+           
+          <td>
+          <p><em>
+            <%=oproject[i].dis %>
+          </em>
+        </td>
+          <td>
+          </p>
+            <form action="/download" method="post">
+              <input type="radio" name="dlink" value="<%= oproject[i].id +"/" +oproject[i].pid %>" style="display: none;" checked>
+              <input type="radio" name="pname" value="<%= oproject[i].projectname %>" style="display: none;" checked>
+              <button type="submit" class="btn btn-primary btn-sm">download</button>
+
+            </form>
+          </td>
+          
+             
+              </tr>
+          
+        <% } %>
+      </tbody>
+      </table>
+    </div>
+    
+    <div class="tab-pane fade" id="MyProjects" role="tabpanel" aria-labelledby="profile-tab">
+      <table class="table table-hover myTable">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Discription</th>
+            <th>Download</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+      <tbody>
+      <% for(var i=0;i<uproject.length;i++){%>
+          <tr >
+             <td> <form id="sho<%=uproject[i].pid%>" action="/show" method="post">
+              <input type="radio" name="proid" value="<%= uproject[i].id +"/" +uproject[i].pid %>" style="display: none;" checked>
+              
+
+            </form><p><em>
+               <a href="#" onclick="document.getElementById('sho<%=uproject[i].pid%>').submit()"><%= uproject[i].projectname %></a> 
+                
+              </em>
+              </p>
+            </td>
+           
+          <td>
+          <p><em>
+            <%=uproject[i].dis %>
+          </em>
+        </td>
+          <td>
+          </p>
+            <form action="/download" method="post">
+              <input type="radio" name="dlink" value="<%= uproject[i].id +"/" +uproject[i].pid %>" style="display: none;" checked>
+              <input type="radio" name="pname" value="<%= uproject[i].projectname %>" style="display: none;" checked>
+              <button type="submit" class="btn btn-primary btn-sm">download</button>
+
+            </form>
+          </td>
+          
+             <td>
+                <form action="/delete" id="delete<%=uproject[i].pid%>" method="post">
+                  <input type="radio" name="proid" value="<%= uproject[i].pid %>" style="display: none;" checked>
+                  <input type="radio" name="name" value="<%= uproject[i].id %>" style="display: none;" checked>
+                  <a href="#"  onclick="document.getElementById('delete<%=uproject[i].pid%>').submit()" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                </form>
+              </td>
+              </tr>
+          
+        <% } %>
+      </tbody>
+      </table>
+    </div>
+    <div class="tab-pane fade" id="AddProjects" role="tabpanel" aria-labelledby="profile-tab">
+      <form class="form-horizontal" action="/add" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Project Name:</label>
+          <div class="col-sm-10">
+            <input type="text" name="pname" class="form-control" id="email" placeholder="Enter Project Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">discription:</label>
+          <div class="col-sm-10">
+            <input type="text" name="pdis" class="form-control" id="pwd" placeholder="Enter discription">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="tag">tag:</label>
+          <div class="col-sm-10">
+            <select id="tag" class="form-control" name="ptag">
+              <option value="ML">ML</option>
+              <option value="AI">AI</option>
+              <option value="WebD">WebD</option>
+              <option value="OOM">OOM</option>
+              <option value="DBMS">DBMS</option>
+            </select>
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+          <label class="control-label col-sm-2" for="files">Source code:</label>
+          <div class="col-sm-10">
+            <input type="radio" name="username" value="<%= u[0].id %>" style="display: none;" checked>
+            <input type="file" name="files">
+          </div>
+        </div>
+
+
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    </div>
+    
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Proma</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by Proma
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $(".myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+    
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

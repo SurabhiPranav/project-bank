@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <title>Proma</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    img {
+  border-radius: 50%;
+}
+body {
+  font-family: 'Inter UI', sans-serif;
+ 
+}
+</style>
+</head>
+
+<body>
+  <div id="feedback-form-wrapper">
+    
+   
+    <div id="feedback-form-modal">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Feedback Form</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/feedback" method="post" id="feedback1">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">How likely you would like to recommand us to your friends?</label>
+                  <div class="rating-input-wrapper d-flex justify-content-between mt-2">
+                    <label><input type="radio" value="1" name="rating" /><span class="border rounded px-3 py-2">1</span></label>
+                    <label><input type="radio" value="2" name="rating" /><span class="border rounded px-3 py-2">2</span></label>
+                    <label><input type="radio" value="3"name="rating" /><span class="border rounded px-3 py-2">3</span></label>
+                    <label><input type="radio" value="4"name="rating" /><span class="border rounded px-3 py-2">4</span></label>
+                    <label><input type="radio" value="5"name="rating" /><span class="border rounded px-3 py-2">5</span></label>
+                    <label><input type="radio" value="6"name="rating" /><span class="border rounded px-3 py-2">6</span></label>
+                    <label><input type="radio" value="7"name="rating" /><span class="border rounded px-3 py-2">7</span></label>
+                    <label><input type="radio" value="8"name="rating" /><span class="border rounded px-3 py-2">8</span></label>
+                    <label><input type="radio"value="9" name="rating" /><span class="border rounded px-3 py-2">9</span></label>
+                    <label><input type="radio" value="10"name="rating" /><span class="border rounded px-3 py-2">10</span></label>
+                  </div>
+                  <div class="rating-labels d-flex justify-content-between mt-1">
+                    <label>Very unlikely</label>
+                    <label>Very likely</label>
+                  </div>
+                </div>
+                <input type="radio" name="uid" value="<%= u.name %>" style="display: none;" checked>
+                <div class="form-group">
+                  <label for="input-two">Would you like to say something?</label>
+                  <input type="text" class="form-control"  name="message">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit"  onclick="document.getElementById('feedback1').submit();" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                </div>
+              </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-inverse"  >
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img class="navbar-brand" src="/apple-touch-icon.png">
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#"><button type="button" class="btn btn-primary btn-sm rounded-0" data-toggle="modal" data-target="#exampleModal">
+            Feedback
+          </button></a></li>
+        </ul>
+       
+        <ul class="nav navbar-nav navbar-right">
+          <form id="logout"method="get" action="/logout">
+            <li><a href="#"  onclick="document.getElementById('logout').submit();"><span class="glyphicon glyphicon-user"></span> Log Out</a>
+            </li>
+          </form>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-3 well">
+        <div class="well">
+          <p><a href="#">My Profile</a></p>
+          <img src="/uploads/<%= u.name%>/<%= u.name%>.jpg"" alt="Avatar" style="width:200px">
+          <P>
+            <%= u.name%>
+          </P>
+          <p>
+            <%= u.id %>
+          </p>
+
+        </div>
+        <div class="well">
+          <p><a href="#">Your Upload</a></p>
+          <% for(var i=0;i<uproject.length;i++){%>
+            <p>
+              <span class="label label-default">
+                <%= uproject[i].proname %>
+              </span>
+            </p>
+            <% }%>
+        </div>
+
+
+
+      </div>
+      <div class="col-sm-7" style="height:700px;overflow: scroll;">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="panel panel-default text-left">
+              <div class="panel-body">
+                <ul class="nav nav-pills">
+                  <li class="active"><a data-toggle="pill" href="#home">Projects</a></li>
+                  <li><a data-toggle="pill" href="#menu1">Add Projects</a></li>
+                  <li><a data-toggle="pill" href="#menu2">Your Projects</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <% for(var i=0;i<oproject.length;i++){%>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="well">
+                    <p><em>
+                      <%= oproject[i].proname %>
+                    </em>
+                    </p>
+                    
+                  </form>
+                  <form action="/show" method="post">
+                    <input type="radio" name="proid" value="<%= oproject[i].prouid +"/" +oproject[i].proid %>" style="display: none;" checked>
+                    <button type="submit" class="btn btn-primary btn-sm">show</button>
+
+                  </form>
+                  <br>
+                  <form action="/download" method="post">
+                    <input type="radio" name="dlink" value="<%= oproject[i].prouid +"/" +oproject[i].proid %>" style="display: none;" checked>
+                    <input type="radio" name="pname" value="<%= oproject[i].proname %>" style="display: none;" checked>
+                    <button type="submit" class="btn btn-primary btn-sm">download</button>
+
+                  </form>
+                  </div>
+                </div>
+                <div class="col-sm-9">
+                  <div class="well">
+                    <p><em>
+                      <%=oproject[i].prodis %>
+                    </em>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+
+          </div>
+          
+          <div id="menu1" class="tab-pane fade ">
+            <form class="form-horizontal" action="/add" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Project Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" name="pname" class="form-control" id="email" placeholder="Enter Project Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">discription:</label>
+                <div class="col-sm-10">
+                  <input type="text" name="pdis" class="form-control" id="pwd" placeholder="Enter discription">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="tag">tag:</label>
+                <div class="col-sm-10">
+                  <select id="tag" class="form-control" name="ptag">
+                    <option value="ML">ML</option>
+                    <option value="AI">AI</option>
+                    <option value="WebD">WebD</option>
+                    <option value="OOM">OOM</option>
+                    <option value="cybersecurity">cybersecurity</option>
+                    <option value="dbms">dbms</option>
+                  </select>
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+
+                <label class="control-label col-sm-2" for="files">Source code:</label>
+                <div class="col-sm-10">
+                  <input type="radio" name="username" value="<%= u.name %>" style="display: none;" checked>
+                  <input type="file" name="files">
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div id="menu1" class="tab-pane fade ">
+            <form class="form-horizontal" action="/add" method="post" enctype="multipart/form-data">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Project Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" name="pname" class="form-control" id="email" placeholder="Enter Project Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">discription:</label>
+                <div class="col-sm-10">
+                  <input type="text" name="pdis" class="form-control" id="pwd" placeholder="Enter discription">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="tag">tag:</label>
+                <div class="col-sm-10">
+                  <input type="text" name="ptag" class="form-control" id="tag" placeholder="web development">
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+
+                <label class="control-label col-sm-2" for="files">Source code:</label>
+                <div class="col-sm-10">
+                  <input type="radio" name="username" value="<%= u.name %>" style="display: none;" checked>
+                  <input type="file" name="files" >
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <% for(var i=0;i<uproject.length;i++){%>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="well">
+                    <p><em>
+                      <%= uproject[i].proid %></em>
+                    </p>
+                    <p><em>
+                      <%= uproject[i].proname %>
+                    </em>
+                    </p>
+                    <form action="/delete" method="post">
+                      <input type="radio" name="proid" value="<%= uproject[i].proid %>" style="display: none;" checked>
+                      <input type="radio" name="name" value="<%= uproject[i].ppid %>" style="display: none;" checked>
+                      <button type="submit" class="btn btn-primary btn-sm">delete</button>
+
+                    </form>
+                  </br>
+                    <form action="/show" method="post">
+                      <input type="radio" name="proid" value="<%= u.name +"/" + uproject[i].proid %>" style="display: none;" checked>
+                      <button type="submit" class="btn btn-primary btn-sm">show</button>
+
+                    </form>
+                  </div>
+                </div>
+                <div class="col-sm-9">
+                  <div class="well">
+                    <p><em>
+                      <%=uproject[i].prodis %>
+                    </em>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+                
+          </div>
+            
+         
+        </div>
+      </div>
+      <div class="col-sm-2 well">
+        <div class="thumbnail">
+          <p>Latest Projects:</p>
+
+          <p><strong>Project Name</strong></p>
+          <p>Thu. 13 April 2023</p>
+          <button class="btn btn-primary">Info</button>
+        </div>
+        <div class="well">
+          <form method="post" action="/tag">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">tag
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li> <input id="Ml" type="checkbox" name="atag" value="ML"><label for="ML"><a
+                      href="#">ML</a></label></li>
+                <li> <input id="WebD" type="checkbox" name="atag" value="WebD"><label for="wd"> <a href="#">WebD</a></label></li>
+                <li> <input id="dbms" type="checkbox" name="atag" value="dbms"><label for="dbms">
+                    <a href="#">dbms</a></label></li>
+                <li> <input id="OOM" type="checkbox" name="atag" value="OOM"><label for="OOM">
+                    <a href="#">OOM</a></label></li>
+                    <li> <input id="cybersecurity" type="checkbox" name="atag" value="cybersecurity"><label for="oom">
+                      <a href="#">cybersecurity</a></label></li>
+              </ul>
+            </div>
+        </div>
+        <div class="well">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">DepartmentS
+              <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li> <input id="it" type="checkbox" name="dep" value="IT"><label for="it"><a href="#">IT</a></label></li>
+              <li> <input id="ece" type="checkbox" name="dep" value="ECE"><label for="ece"><a href="#">ECE</a></label>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <button type="submit">submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container-fluid text-center">
+    <p>Footer Text</p>
+  </footer>
+</body>
+
+</html>
